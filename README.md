@@ -1,11 +1,9 @@
-# :mountain_cableway: ***TouristApp API***
-__
+# :sunrise: ***TouristApp API***
+___
 
-<img alt="Static Badge" src="https://img.shields.io/badge/Python-3.10-brightgreen?style=plastic&logo=python&logoColor=green">
-<img alt="Static Badge" src="https://img.shields.io/badge/rest_framework-3.14-brightgreen?style=plastic&logo=django&logoColor=green&cacheSeconds=3600">
-<img alt="Static Badge" src="https://img.shields.io/badge/postgreSQL-14-brightblue?style=plastic&logo=postgresql&logoColor=blue&labelColor=grey&color=blue&cacheSeconds=3600">
+<img alt="Static Badge" src="https://img.shields.io/badge/Python-3.10-brightgreen?style=plastic&logo=python&logoColor=green"><img alt="Static Badge" src="https://img.shields.io/badge/rest_framework-3.14-brightgreen?style=plastic&logo=django&logoColor=green&cacheSeconds=3600"><img alt="Static Badge" src="https://img.shields.io/badge/postgreSQL-14-brightblue?style=plastic&logo=postgresql&logoColor=blue&labelColor=grey&color=blue&cacheSeconds=3600">
 
-:mount_fuji: ___API for posting information about passes___
+##:mount_fuji: ___API for posting information about passes___
 
 # Usage
 
