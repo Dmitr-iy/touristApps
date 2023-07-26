@@ -4,6 +4,6 @@ from .models import Added
 
 
 class AddedViewSet(viewsets.ModelViewSet):
-    """Addition of the POST method"""
+    """Adding method post"""
     queryset = Added.objects.all()
     serializer_class = AddedSerializer
