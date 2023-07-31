@@ -4,7 +4,7 @@ from pereval.views import AddedViewSet
 
 
 router = routers.DefaultRouter()
-router.register(r'submitdata', AddedViewSet)
+router.register(r'submitdata', AddedViewSet, basename='submitdata')
 
 urlpatterns = [
     path('', include(router.urls)),

@@ -48,7 +48,13 @@ class AddedSerializer(serializers.ModelSerializer):
         coords_data = validated_data.pop('coords')
         images_data = validated_data.pop('images')
 
-        user = Users.objects.create(**user_data)
+        user_email = user_data.get('email')
+        if Users.objects.filter(email=user_email).exists():
+            user = Users.objects.get(email=user_email)
+
+        else:
+            user = Users.objects.create(**user_data)
+
         level = Level.objects.create(**level_data)
         coords = Coords.objects.create(**coords_data)
 
@@ -59,3 +65,41 @@ class AddedSerializer(serializers.ModelSerializer):
         for image_data in images_data:
             Images.objects.create(added=instance, **image_data)
         return instance
+
+    def update(self, instance, validated_data):
+        if instance.status == 'New':
+            if 'user' in validated_data:
+                raise serializers.ValidationError('Update error. User fields are not changeable')
+
+            if 'level' in validated_data:
+                level = self.fields['level']
+                level_instance = instance.level
+                level_data = validated_data.pop('level')
+                level.update(level_instance, level_data)
+
+            if 'coords' in validated_data:
+                coords = self.fields['coords']
+                coors_instance = instance.coords
+                coords_data = validated_data.pop('coords')
+                coords.update(level_instance, coords_data)
+
+            if 'images' in validated_data:
+                images_data = validated_data.pop('images')
+
+                for image in images_data:
+                    image_id = image.get('id', None)
+                    if image_id:
+                        inv_image = Images.objects.get(id=image_id)
+                        inv_image.images = image.get('images', inv_image.data)
+                        inv_image.title = image.get('title', inv_image.title)
+                        inv_image.save()
+                    else:
+                        Images.objects.create(added=instance, **image)
+
+                images_dict = dict((i.id, i) for i in instance.images.all())
+                if len(images_data) == 0:
+                    for image in images_dict.values():
+                        image.delete()
+
+            return super(AddedSerializer, self).update(instance, validated_data)
+        raise serializers.ValidationError('Update error. Object status is not `New`')
