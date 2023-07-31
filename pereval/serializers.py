@@ -90,7 +90,7 @@ class AddedSerializer(serializers.ModelSerializer):
                     image_id = image.get('id', None)
                     if image_id:
                         inv_image = Images.objects.get(id=image_id)
-                        inv_image.data = image.get('data', inv_image.data)
+                        inv_image.images = image.get('images', inv_image.data)
                         inv_image.title = image.get('title', inv_image.title)
                         inv_image.save()
                     else:
@@ -102,4 +102,4 @@ class AddedSerializer(serializers.ModelSerializer):
                         image.delete()
 
             return super(AddedSerializer, self).update(instance, validated_data)
-            raise serializers.ValidationError('Update error. Object status is not `New`')
+        raise serializers.ValidationError('Update error. Object status is not `New`')
