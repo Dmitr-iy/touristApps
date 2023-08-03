@@ -124,7 +124,6 @@ DATABASES = ''
     <title>Coverage report</title>
     <link rel="icon" sizes="32x32" href="favicon_32.png">
     <link rel="stylesheet" href="style.css" type="text/css">
-    <script type="text/javascript" src="coverage_html.js" defer></script>
 </head>
 <body class="indexfile">
 <header>
@@ -138,7 +137,7 @@ DATABASES = ''
             <div id="help_panel">
                 <p class="legend"></p>
                 <div class="keyhelp">
-    </div>
+                </div> 
 </header>
 <main id="index">
     <table class="index" data-sortable>
