@@ -65,20 +65,19 @@ Example:__
 __The record can be edited, except for the user's melons 
 (Last name, first name, surname, email and phone number).
 You can get a list of data about all objects that the user with mail <email> sent to the server. 
-You can also get one record about the pass by its 'id'.__
-
-#### :link: _URL swagger:  <http://kosheldmitriy.pythonanywhere.com/swagger/>_
+You can also get one record about the pass by its 'id'.__   
+ ___
+___
+#### :link: _URL swagger:  <http://kosheldmitriy.pythonanywhere.com/swagger/>
 
 #### :link: _URL to 3-Panel Responsive Layout: <http://kosheldmitriy.pythonanywhere.com/redoc/>_
 >#### The left panel contains the search bar and the navigation menu.
 >>#### The central panel contains documentation.
->>> #### The right panel contains sample requests and responses.
-
-
-
+>>> #### The right panel contains sample requests and responses.  
+---
+___
 ## :rocket:To run on the local machine, compile the project:
 ###### commands for OC Linux
-
    ```zsh
      $ git clone https://github.com/Dmitr-iy/touristApps.git
    ```
@@ -134,12 +133,10 @@ DATABASES = ''
             <span class="pc_cov">96%</span>
         </h1>
         <aside id="help_panel_wrapper">
-            <input id="help_panel_state" type="checkbox">
             <label for="help_panel_state">
-                <img id="keyboard_icon" src="keybd_closed.png" alt="Show/hide keyboard shortcuts" />
             </label>
             <div id="help_panel">
-                <p class="legend">Shortcuts on this page</p>
+                <p class="legend"></p>
                 <div class="keyhelp">
     </div>
 </header>
@@ -276,7 +273,6 @@ DATABASES = ''
     <div class="content">
         <p>
             <a class="nav" href="https://coverage.readthedocs.io/en/7.2.7">coverage.py v7.2.7</a>,
-            created at 2023-07-31 22:26 +0500
         </p>
     </div>
     <aside class="hidden">
