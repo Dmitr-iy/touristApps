@@ -88,7 +88,7 @@ ___
    ```
 
    ```zsh
-     $ source /env/bin/activate
+     $ source env/bin/activate
    ```
 
 ### Update pip if necessary:
