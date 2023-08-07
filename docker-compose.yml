@@ -1,0 +1,57 @@
+version: 'latest'
+services:
+    db:
+      container_name: postg
+      image: postgres
+      env_file:
+        - .env
+      volumes:
+        - ../2. Init Database:/docker-entrypoint-initdb.d
+        - ./postgres_data:/var/lib/postgresql/data
+      ports:
+        - "5432:5432"
+      healthcheck:
+        test: ["NONE", "pg_isready -U dmitriy -d pereval"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+        start_period: 10s
+      restart: unless-stopped
+      deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4G
+
+    pgadmin:
+      container_name: pgadmin
+      image: dpage/pgadmin4
+      env_file:
+        - .env
+      ports:
+        - "5050:80"
+      restart: unless-stopped
+      deploy:
+        resources:
+          limits:
+            cpus: '0.5'
+            memory: 1G
+      depends_on:
+        - db
+
+    django:
+      container_name: api
+      build:
+        context: ./
+        dockerfile: Dockerfile
+      command: bash /dm_rest/prestart.sh
+      volumes:
+        - .:/dm_rest
+      ports:
+        - 8000:8000
+      depends_on:
+        - db
+      env_file:
+        - .env
+
+
